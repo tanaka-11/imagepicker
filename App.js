@@ -25,7 +25,7 @@ export default function App() {
     verificaPermissoes();
   }, []);
 
-  // Função para capturar imagem
+  // Função para biblioteca de fotos
   const escolherFoto = async () => {
     // Resultado guardando a biblioteca de fotos
     const resultado = await ImagePicker.launchImageLibraryAsync({
@@ -45,12 +45,34 @@ export default function App() {
     }
   };
 
+  // Função para captura de nova foto
+  const capturarFoto = async () => {
+    const imagem = await ImagePicker.launchCameraAsync({
+      allowsEditing: false,
+      aspect: [16, 9],
+      quality: 0,
+    });
+
+    // Se o resultado não for cancelado
+    if (!resultado.canceled) {
+      setFoto(imagem.assets[0].uri);
+    }
+  };
+
   return (
     <>
       <StatusBar style="auto" />
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-        <Button onPress={escolherFoto} title="Escolher foto" />
-
+        <View
+          style={{
+            justifyContent: "space-evenly",
+            // alignItems: "center",
+            flexDirection: "row",
+          }}
+        >
+          <Button onPress={escolherFoto} title="Escolher foto" />
+          <Button onPress={capturarFoto} title="Tirar uma nova foto" />
+        </View>
         {/* Condicional para aparecer a imagem */}
         {foto ? (
           <Image source={{ uri: foto }} style={{ width: 300, height: 300 }} />
