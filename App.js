@@ -6,6 +6,8 @@ import { useState, useEffect } from "react";
 import * as ImagePicker from "expo-image-picker";
 // Acessando todos recursos da MediaLibrary
 import * as MediaLibrary from "expo-media-library";
+// Acessando todos recursos da Sharing
+import * as Sharing from "expo-sharing";
 
 export default function App() {
   // State tradicional guardando a foto
@@ -66,7 +68,9 @@ export default function App() {
   };
 
   // Função para compartilhar a foto
-  const compartilharFoto = async () => {};
+  const compartilharFoto = async () => {
+    await Sharing.shareAsync(foto);
+  };
 
   return (
     <>
@@ -90,11 +94,14 @@ export default function App() {
         ) : (
           <Text>Você ainda não escolheu uma foto </Text>
         )}
-        <Button
-          style={{ padding: 10, margin: 10 }}
-          onPress={compartilharFoto}
-          title="Compartilhar"
-        />
+
+        {foto && (
+          <Button
+            style={{ padding: 10, margin: 10 }}
+            onPress={compartilharFoto}
+            title="Compartilhar"
+          />
+        )}
       </View>
     </>
   );
