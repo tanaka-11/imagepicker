@@ -55,11 +55,12 @@ export default function App() {
       // Formato da imagem
       aspect: [16, 9],
       // Nivel da qualidade
-      quality: 0.5,
+      quality: 1,
     });
 
-    // Se a imagem não for cancelado
+    // Se a imagem não for cancelada
     if (!imagem.canceled) {
+      await MediaLibrary.saveToLibraryAsync(imagem.assets[0].uri); // Salvando a imagem
       setFoto(imagem.assets[0].uri);
     }
   };
