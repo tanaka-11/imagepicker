@@ -44,12 +44,12 @@ export default function App() {
       setFoto(resultado.assets[0].uri);
     }
   };
-  console.log(foto);
+
   return (
     <>
       <StatusBar style="auto" />
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-        <Button title="Escolher foto" />
+        <Button onPress={escolherFoto} title="Escolher foto" />
         <Image style={{ width: 300, height: 300 }} />
       </View>
     </>
