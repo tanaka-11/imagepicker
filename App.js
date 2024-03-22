@@ -50,7 +50,13 @@ export default function App() {
       <StatusBar style="auto" />
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
         <Button onPress={escolherFoto} title="Escolher foto" />
-        <Image style={{ width: 300, height: 300 }} />
+
+        {/* Condicional para aparecer a imagem */}
+        {foto ? (
+          <Image source={{ uri: foto }} style={{ width: 300, height: 300 }} />
+        ) : (
+          <Text>Você ainda não escolheu uma foto </Text>
+        )}
       </View>
     </>
   );
