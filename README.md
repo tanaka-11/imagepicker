@@ -6,3 +6,4 @@
 
 1. Instalar a biblioteca `npx expo install expo-image-picker`
 2. Instalar a biblioteca `npx expo install expo-media-library`
+3. Instalar a biblioteca `npx expo install expo-sharing`

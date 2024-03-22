@@ -65,6 +65,9 @@ export default function App() {
     }
   };
 
+  // Função para compartilhar a foto
+  const compartilharFoto = async () => {};
+
   return (
     <>
       <StatusBar style="auto" />
@@ -87,6 +90,11 @@ export default function App() {
         ) : (
           <Text>Você ainda não escolheu uma foto </Text>
         )}
+        <Button
+          style={{ padding: 10, margin: 10 }}
+          onPress={compartilharFoto}
+          title="Compartilhar"
+        />
       </View>
     </>
   );
