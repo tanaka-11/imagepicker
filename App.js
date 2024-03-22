@@ -48,8 +48,11 @@ export default function App() {
   // Função para captura de nova foto
   const capturarFoto = async () => {
     const imagem = await ImagePicker.launchCameraAsync({
+      // Negando edição da foto
       allowsEditing: false,
+      // Formato da imagem
       aspect: [16, 9],
+      // Nivel da qualidade
       quality: 0.5,
     });
 
