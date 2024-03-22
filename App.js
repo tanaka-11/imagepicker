@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 
 // Acessando todos recursos da biblioteca imagePicker
 import * as ImagePicker from "expo-image-picker";
+// Acessando todos recursos da MediaLibrary
+import * as MediaLibrary from "expo-media-library";
 
 export default function App() {
   // State tradicional guardando a foto
