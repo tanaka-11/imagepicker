@@ -50,7 +50,7 @@ export default function App() {
     const imagem = await ImagePicker.launchCameraAsync({
       allowsEditing: false,
       aspect: [16, 9],
-      quality: 0,
+      quality: 0.5,
     });
 
     // Se a imagem não for cancelado
