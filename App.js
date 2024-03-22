@@ -12,6 +12,19 @@ export default function App() {
   // State de checagem de permissões atraves do hook(useCameraPermissions) da biblioteca
   const [status, requestPermission] = ImagePicker.useCameraPermissions();
 
+  // useEffect monitorando as permissoes
+  useEffect(() => {
+    async function verificaPermissoes() {
+      // CameraStatus guardando a requisição da permissão de camera
+      const cameraStatus = await ImagePicker.requestCameraPermissionsAsync();
+
+      // Requisição da permissão recebendo o cameraStatus com o parametro de ter permitido
+      requestPermission(cameraStatus === "granted");
+    }
+
+    verificaPermissoes();
+  }, []);
+
   return (
     <>
       <StatusBar style="auto" />
