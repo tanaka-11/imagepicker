@@ -53,8 +53,8 @@ export default function App() {
       quality: 0,
     });
 
-    // Se o resultado não for cancelado
-    if (!resultado.canceled) {
+    // Se a imagem não for cancelado
+    if (!imagem.canceled) {
       setFoto(imagem.assets[0].uri);
     }
   };
