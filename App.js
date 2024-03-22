@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import * as ImagePicker from "expo-image-picker";
 
 export default function App() {
-  // State tradicional
+  // State tradicional guardando a foto
   const [foto, setFoto] = useState(null);
 
   // State de checagem de permissões atraves do hook(useCameraPermissions) da biblioteca
@@ -25,6 +25,26 @@ export default function App() {
     verificaPermissoes();
   }, []);
 
+  // Função para capturar imagem
+  const escolherFoto = async () => {
+    // Resultado guardando a biblioteca de fotos
+    const resultado = await ImagePicker.launchImageLibraryAsync({
+      // Habilitando apenas as imagens do dispositivo atraves do (MediaTypeOptions)
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+      // Permitindo edição de foto
+      allowsEditing: true,
+      // Formato da foto
+      aspect: [16, 9],
+      // Qualidade da imagem de 0 a 1
+      quality: 1,
+    });
+
+    // Se o resultado não for cancelado
+    if (!resultado.canceled) {
+      setFoto(resultado.assets[0].uri);
+    }
+  };
+  console.log(foto);
   return (
     <>
       <StatusBar style="auto" />
