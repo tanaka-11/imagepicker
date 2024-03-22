@@ -6,6 +6,12 @@ import { useState, useEffect } from "react";
 import * as ImagePicker from "expo-image-picker";
 
 export default function App() {
+  // State tradicional
+  const [foto, setFoto] = useState(null);
+
+  // State de checagem de permissões atraves do hook(useCameraPermissions) da biblioteca
+  const [status, requestPermission] = ImagePicker.useCameraPermissions();
+
   return (
     <>
       <StatusBar style="auto" />
