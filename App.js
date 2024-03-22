@@ -69,8 +69,10 @@ export default function App() {
         <View
           style={{
             justifyContent: "space-evenly",
-            // alignItems: "center",
+            alignItems: "center",
             flexDirection: "row",
+            gap: 8,
+            margin: 10,
           }}
         >
           <Button onPress={escolherFoto} title="Escolher foto" />
